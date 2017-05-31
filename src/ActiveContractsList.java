@@ -370,13 +370,13 @@ public class ActiveContractsList {
         ActiveContractsList.add(contract);
     }
 
-    public String[] listContractTypes(String type) {
-        String[] cons = new String[ActiveContractsList.size()];
+    public ArrayList<String> listContractTypes(String type) {
+        ArrayList<String> cons = new ArrayList<String>();
         for (int i=0;i<ActiveContractsList.size();i++) {
             if ((type.equalsIgnoreCase("internet") && ActiveContractsList.get(i).getProgram() instanceof Internet) ||
                     (type.equalsIgnoreCase("card contract") && ActiveContractsList.get(i).getProgram() instanceof CardContract) ||
                     (type.equalsIgnoreCase("contract") && ActiveContractsList.get(i).getProgram() instanceof Contract)) {
-                cons[i] = ActiveContractsList.get(i).toString();
+                cons.add(ActiveContractsList.get(i).toString());
             }
         }
         return cons;

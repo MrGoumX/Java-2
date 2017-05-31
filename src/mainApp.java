@@ -273,7 +273,13 @@ public class mainApp extends JFrame implements ActionListener,MouseListener{
                 String[] names = {"Contract", "Card Contract", "Internet"};
                 int con = (int) JOptionPane.showOptionDialog(null, "Choose service type", "Confirmation", JOptionPane.WARNING_MESSAGE, 0, null, names, names[0]);
                 if (con != -1) {
-                    JOptionPane.showMessageDialog(null, new JList(list.listContractTypes(names[con])));
+                    System.out.println(list.listContractTypes(names[con]).size()==0);
+                    if(list.listContractTypes(names[con]).size()==0) {
+                        JOptionPane.showMessageDialog(null,"No active " + names[con] + " where found!");
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(null, new JList(list.listContractTypes(names[con]).toArray()));
+                    }
                 }
             }
         }
