@@ -5,6 +5,7 @@ import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.io.*;
 import java.text.*;
+import java.util.*;
 public class mainApp extends JFrame implements ActionListener,MouseListener{
     private ServiceList services;
     private ActiveContractsList list;
@@ -24,6 +25,7 @@ public class mainApp extends JFrame implements ActionListener,MouseListener{
     private ActiveContracts active;
     private Statistics stat;
     private CostCount cost;
+    private Date sdate = new Date();
     public static void main(String[] args) {
         new mainApp();
     }
@@ -347,7 +349,7 @@ public class mainApp extends JFrame implements ActionListener,MouseListener{
             while (true) {
                 DateFormat df = new SimpleDateFormat(DATE_FORMAT);
                 boolean flag = false;
-                date = (String) JOptionPane.showInputDialog(null, "Give current Date");
+                date = (String) JOptionPane.showInputDialog(null, "Give current Date",df.format(sdate));
                 try {
                     df.setLenient(false);
                     df.parse(date);
