@@ -34,7 +34,7 @@ public class CostCount {
             else {
                 total += "No free sms left" + "\n";
             }
-            total += "The remaining balance is" + getBalance();
+            total += "The remaining balance is" + stat.getTotbalance();
         }
         else if (program instanceof Internet) {
             Internet contr = (Internet) program;

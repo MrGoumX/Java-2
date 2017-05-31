@@ -1,5 +1,4 @@
 public class Program{
-    //test
     //Basic Program class and constructor
     protected String name;
     protected double price;

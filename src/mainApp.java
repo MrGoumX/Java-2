@@ -1,3 +1,7 @@
+//Main Class and Program
+//CHRISTOS GKOUMAS,EKSAMINO 2, 3160026
+//ANTONIS KANELLOPOULOS, EKSAMINO 2, 3160050
+//GEORGIA GRIGORIADOU, EKSAMINO 2, 3160029
 import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
@@ -132,6 +136,7 @@ public class mainApp extends JFrame implements ActionListener,MouseListener{
         gbc_2.gridy = 2;
         btnPan.add(intern, gbc_2);
         tabs.addTab("Active Contracts", null, activePan, null);
+        tabs.setEnabledAt(1,false);
         activePan.setLayout(new BorderLayout(0, 0));
         activePan.add(addCon, BorderLayout.WEST);
         activePan.add(activeScroll, BorderLayout.CENTER);
@@ -224,6 +229,7 @@ public class mainApp extends JFrame implements ActionListener,MouseListener{
                 for(int i=0;i<list.Size();i++){
                     actModels.addElement(list.get(i).getContents());
                 }
+                tabs.setEnabledAt(1,true);
             }
             if(list.Size()!=0){
                 save.setEnabled(true);
@@ -259,6 +265,7 @@ public class mainApp extends JFrame implements ActionListener,MouseListener{
                 for(int i=0;i<list.Size();i++){
                     actModels.addElement(list.get(i).getContents());
                 }
+                tabs.setEnabledAt(1,true);
             }
 			if(services.size()!=0) {
 				openAct.setEnabled(true);
@@ -420,6 +427,7 @@ public class mainApp extends JFrame implements ActionListener,MouseListener{
             int i = finalList.getSelectedIndex();
             if(i!=-1){
                 priceField.setText(cost.findCost(list.findByCode(list.get(i).getCode())) + " Euros");
+                System.out.println(cost.findCost(list.findByCode(list.get(i).getCode())) + " Euros");
             }
         }
     }
