@@ -364,8 +364,15 @@ public class mainApp extends JFrame implements ActionListener,MouseListener{
             String[] payments = {"Cash", "Credit Card", "E-bank"};
             int payway = (int) JOptionPane.showOptionDialog(null, "Please choose way of payment", "Confirmation", JOptionPane.WARNING_MESSAGE, 0, null, payments, payments[0]);
             active.setPayway(payments[payway]);
-            list.addActiveContract(active);
-            actModels.addElement(active.getContents());
+            String[] yn = {"Yes add contract", "No discard contract"};
+            int yno = (int)JOptionPane.showOptionDialog(null,active.toString(),"Confirmation of active contract",JOptionPane.WARNING_MESSAGE,0,null,yn,yn[0]);
+            if(yno == 0){
+                list.addActiveContract(active);
+                actModels.addElement(active.getContents());
+            }
+            else{
+                active=null;
+            }
         }
         else if(e.getSource() == updStats){
             int i = finalList.getSelectedIndex();
