@@ -5,7 +5,7 @@ import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.io.*;
 import java.text.*;
-public class App extends JFrame implements ActionListener,MouseListener{
+public class mainApp extends JFrame implements ActionListener,MouseListener{
     private ServiceList services;
     private ActiveContractsList list;
     private JToolBar toolbar;
@@ -25,9 +25,9 @@ public class App extends JFrame implements ActionListener,MouseListener{
     private Statistics stat;
     private CostCount cost;
     public static void main(String[] args) {
-        new App();
+        new mainApp();
     }
-    public App() {
+    public mainApp() {
         initialize();
     }
     private void initialize() {
