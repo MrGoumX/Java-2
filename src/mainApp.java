@@ -308,12 +308,26 @@ public class mainApp extends JFrame implements ActionListener,MouseListener{
                 JOptionPane.showMessageDialog(null,cost.setDiscount(list.findByCode(list.get(i).getCode())),"Discount", JOptionPane.INFORMATION_MESSAGE);
             }
         }
-        else if(e.getSource() == save){
-            list.saveFile("active.txt");
+        else if(e.getSource() == save) {
+            if (list.Size() != 0){
+                list.saveFile("active.txt");
+            }
+            else{
+                JOptionPane.showMessageDialog(null,"The list is empty, you cannot save","Error",JOptionPane.ERROR_MESSAGE);
+            }
         }
         else if(e.getSource() == saveExit){
-            list.saveFile("active.txt");
-            System.exit(0);
+            if (list.Size() != 0) {
+                list.saveFile("active.txt");
+                System.exit(0);
+            }
+            else{
+                String[] opts = {"Yes","No"};
+                int opt = (int)JOptionPane.showOptionDialog(null,"The list is empty, do you want to exit?","Error",JOptionPane.ERROR_MESSAGE,0,null,opts,opts[0]);
+                if(opt == 0){
+                    System.exit(0);
+                }
+            }
         }
         else if(e.getSource() == con){
             listall.setModel(conModel);
