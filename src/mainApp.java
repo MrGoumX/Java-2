@@ -62,8 +62,8 @@ public class mainApp extends JFrame implements ActionListener,MouseListener{
         servScroll = new JScrollPane(listall);
         activeScroll = new JScrollPane(finalList);
         filter = new FileNameExtensionFilter("Text Files","txt");
-        F = new File("user.home");
-        F2 = new File("user.home");
+        F = new File("");
+        F2 = new File("");
         chooser = new JFileChooser();
         chooser.setFileFilter(filter);
         con = new JButton("Contract");
@@ -209,6 +209,7 @@ public class mainApp extends JFrame implements ActionListener,MouseListener{
             Checker = chooser.showOpenDialog(null);
             if(Checker == JFileChooser.APPROVE_OPTION) {
                 services.loadFile(chooser.getSelectedFile());
+                F = new File(chooser.getSelectedFile().toString());
                 loadModels();
                 if(services.size()!=0) {
                     openAct.setEnabled(true);
@@ -226,6 +227,7 @@ public class mainApp extends JFrame implements ActionListener,MouseListener{
             Checker2 = chooser.showOpenDialog(null);
             if(Checker2 == JFileChooser.APPROVE_OPTION){
                 list.loadFile(chooser.getSelectedFile());
+                F2 = new File(chooser.getSelectedFile().toString());
                 for(int i=0;i<list.Size();i++){
                     actModels.addElement(list.get(i).getContents());
                 }
@@ -254,6 +256,7 @@ public class mainApp extends JFrame implements ActionListener,MouseListener{
             Checker = chooser.showOpenDialog(null);
             if(Checker == JFileChooser.APPROVE_OPTION){
                 services.loadFile(chooser.getSelectedFile());
+                F = new File(chooser.getSelectedFile().toString());
             }
             JOptionPane.showMessageDialog(null,"Please choose active contracts file");
             int Checker2;
@@ -261,6 +264,7 @@ public class mainApp extends JFrame implements ActionListener,MouseListener{
             Checker2 = chooser.showOpenDialog(null);
             if(Checker2 == JFileChooser.APPROVE_OPTION){
                 list.loadFile(chooser.getSelectedFile());
+                F2 = new File(chooser.getSelectedFile().toString());
                 loadModels();
                 for(int i=0;i<list.Size();i++){
                     actModels.addElement(list.get(i).getContents());
@@ -310,7 +314,8 @@ public class mainApp extends JFrame implements ActionListener,MouseListener{
         }
         else if(e.getSource() == save) {
             if (list.Size() != 0){
-                list.saveFile("active.txt");
+                System.out.println(F2.getName());
+                list.saveFile(F2.getName());
             }
             else{
                 JOptionPane.showMessageDialog(null,"The list is empty, you cannot save","Error",JOptionPane.ERROR_MESSAGE);
@@ -318,7 +323,7 @@ public class mainApp extends JFrame implements ActionListener,MouseListener{
         }
         else if(e.getSource() == saveExit){
             if (list.Size() != 0) {
-                list.saveFile("active.txt");
+                list.saveFile(F2.getName());
                 System.exit(0);
             }
             else{
