@@ -360,7 +360,7 @@ public class mainApp extends JFrame implements ActionListener,MouseListener{
             active.setCon(services.byName(programs[con]));
             while (true) {
                 name = JOptionPane.showInputDialog(this, "Please give name");
-                if (name.matches("[A-Za-z]+")) {
+                if (name.matches("[A-Za-z ]+")) {
                     break;
                 } else {
                     JOptionPane.showMessageDialog(null,"A name cannot contain numbers or symbols","Error", JOptionPane.ERROR_MESSAGE);
@@ -445,7 +445,6 @@ public class mainApp extends JFrame implements ActionListener,MouseListener{
             int i = finalList.getSelectedIndex();
             if(i!=-1){
                 priceField.setText(cost.findCost(list.findByCode(list.get(i).getCode())) + " Euros");
-                System.out.println(cost.findCost(list.findByCode(list.get(i).getCode())) + " Euros");
             }
         }
     }
