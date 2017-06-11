@@ -434,7 +434,7 @@ public class mainApp extends JFrame implements ActionListener,MouseListener{
                             stat.setData(Integer.parseInt(data));
                             break;
                         } else {
-                            JOptionPane.showMessageDialog(null,"The number must be positive. Try again","Error",JOptionPane.ERROR_MESSAGE);
+                            JOptionPane.showMessageDialog(null,"The number must be positive. Try again","Warning",JOptionPane.WARNING_MESSAGE);
                         }
                     }
                 }
