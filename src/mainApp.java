@@ -165,7 +165,7 @@ public class mainApp extends JFrame implements ActionListener,MouseListener{
                 stat.setsecs(Integer.parseInt(secs));
                 break;
             } else {
-                System.out.println("The number must be positive. Try again");
+                JOptionPane.showMessageDialog(null,"The number must be positive. Try again","Warning",JOptionPane.WARNING_MESSAGE);
             }
         }
         while (true) {
@@ -174,7 +174,7 @@ public class mainApp extends JFrame implements ActionListener,MouseListener{
                 stat.setSms(Integer.parseInt(sms));
                 break;
             } else {
-                System.out.println("The number must be positive. Try again");
+                JOptionPane.showMessageDialog(null,"The number must be positive. Try again","Warning",JOptionPane.WARNING_MESSAGE);
             }
         }
     }
@@ -284,7 +284,6 @@ public class mainApp extends JFrame implements ActionListener,MouseListener{
                 String[] names = {"Contract", "Card Contract", "Internet"};
                 int con = (int) JOptionPane.showOptionDialog(null, "Choose service type", "Confirmation", JOptionPane.WARNING_MESSAGE, 0, null, names, names[0]);
                 if (con != -1) {
-                    System.out.println(list.listContractTypes(names[con]).size()==0);
                     if(list.listContractTypes(names[con]).size()==0) {
                         JOptionPane.showMessageDialog(null,"No active " + names[con] + " where found!");
                     }
