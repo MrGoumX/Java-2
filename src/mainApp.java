@@ -314,8 +314,7 @@ public class mainApp extends JFrame implements ActionListener,MouseListener{
         }
         else if(e.getSource() == save) {
             if (list.Size() != 0){
-                System.out.println(F2.getName());
-                list.saveFile(F2.getName());
+                list.saveFile(F2.getAbsolutePath());
             }
             else{
                 JOptionPane.showMessageDialog(null,"The list is empty, you cannot save","Error",JOptionPane.ERROR_MESSAGE);
@@ -323,7 +322,7 @@ public class mainApp extends JFrame implements ActionListener,MouseListener{
         }
         else if(e.getSource() == saveExit){
             if (list.Size() != 0) {
-                list.saveFile(F2.getName());
+                list.saveFile(F2.getAbsolutePath());
                 System.exit(0);
             }
             else{
