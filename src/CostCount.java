@@ -65,14 +65,15 @@ public class CostCount {
         }
         else if (program instanceof CardContract) {
             CardContract contr = (CardContract) program;
-            stat.setBalance(stat.getTotbalance() + contr.getBalance());
-            balance = stat.getTotbalance();
+            balance = stat.getTotbalance() + contr.getBalance();
+            System.out.println(balance);
             int smsUsedAfterQuote = Math.max(stat.getTotsms() - contr.getSms(), 0);
             int minsUsedAfterQuote = Math.max(stat.getTotsecs() - (contr.getMins()*60), 0);
             balance -= smsUsedAfterQuote * .15;
             balance -= minsUsedAfterQuote * .0055;
             price += Math.max(-balance, 0);
             price -= price * ((CardContract) program).getDiscount();
+            System.out.println(price);
         }
         else if (program instanceof Internet) {
             Internet contr = (Internet) program;
